@@ -20,13 +20,13 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 Identify your objectives and prepare your environment.
 
 - **Environment Check**: Run the project's initialization script (e.g., `./init.sh`) to verify tool health.
-- **Task Discovery**: Authenticate and find issues:
+- **Task Discovery**: Authenticate and find backlog tasks (labeled `agent:assigned` but NOT `in-progress`):
     ```bash
-    source ~/.agent-env.sh && gh issue list --label "agent:assigned"
+    source ~/.agent-env.sh && gh issue list --label "agent:assigned" --search "-label:in-progress"
     ```
-- **Claim Task**: Mark the issue as in-progress before starting:
+- **Claim Task**: Mark the issue as `in-progress` while keeping the `agent:assigned` label to maintain ownership:
     ```bash
-    source ~/.agent-env.sh && gh issue edit <number> --add-label "agent:in-progress" --remove-label "agent:assigned"
+    source ~/.agent-env.sh && gh issue edit <number> --add-label "in-progress"
     ```
 - **Reference**: See [github-ops.md](references/github-ops.md) for discovery commands.
 
@@ -35,19 +35,19 @@ Identify your objectives and prepare your environment.
 Maintain transparency and quality during development.
 
 - **Decompose Task**: Break down issues into atomic steps in `.agents/TODO.md` and sync to GitHub.
-- **Branch & Code**: Create a feature branch and adhere to project standards.
+- **Branch & Draft PR**: Create a feature branch and an immediate DRAFT Pull Request to link the issue and track progress.
 - **Standards**: Follow the project's formatting and "Root Lock" rules.
-- **Reference**: See [standards.md](references/standards.md) for code quality guidelines.
+- **Reference**: See [github-ops.md](references/github-ops.md) for branch and PR creation commands.
 
 ## 3. Submission & Shutdown
 
 Validate your work and handle transitions.
 
 - **Principal Checklist**: Perform a final self-review of architecture and telemetry.
-- **Pull Request**: Submit your changes for review using conventional commits.
-- **Handoffs**: When submitting for review, apply the review label:
+- **Ready for Review**: Mark the draft PR as ready for review.
+- **Handoffs**: When submitting for review, apply the generic status label:
     ```bash
-    source ~/.agent-env.sh && gh issue edit <number> --add-label "agent:waiting-for-review" --remove-label "agent:in-progress"
+    source ~/.agent-env.sh && gh issue edit <number> --add-label "waiting-for-review" --remove-label "in-progress"
     ```
     If pausing, ensure the current state is documented on the issue.
 - **Reference**: See [github-ops.md](references/github-ops.md) for PR and handoff commands.
