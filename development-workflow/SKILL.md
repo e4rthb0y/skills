@@ -10,7 +10,7 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 ## Prerequisites
 
 - Ensure `gh`, `git`, and any project-specific formatters or linters are installed.
-- Source the project's environment setup script if one exists (e.g., `.env` or `init.sh`).
+- Source the project's environment setup script if one exists (e.g., `init.sh`).
 
 ## 1. Startup & Discovery
 Identify your objectives and prepare your environment.
