@@ -10,7 +10,10 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 ## Prerequisites
 
 - Ensure `gh`, `git`, and any project-specific formatters or linters are installed.
-- Source the project's environment setup script if one exists (e.g., `init.sh`).
+- Source the environment setup script before any operations to authenticate as an agent:
+    ```bash
+    source ~/.agent-env.sh
+    ```
 
 ## 1. Startup & Discovery
 
