@@ -1,6 +1,6 @@
 ---
 name: development-workflow
-description: End-to-end development lifecycle for the Neovim configuration. Use when starting a new task, managing GitHub issues, following project standards, or submitting pull requests.
+description: End-to-end development lifecycle for the project. Use when starting a new task, managing GitHub issues, following project standards, or submitting pull requests.
 ---
 
 # Development Workflow
@@ -9,15 +9,12 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 
 ## Prerequisites
 
-- Ensure `gh`, `git`, and `stylua` are installed.
-- Source the environment setup script before any operations:
-    ```bash
-    source ~/.agent-env.sh
-    ```
+- Ensure `gh`, `git`, and any project-specific formatters or linters are installed.
+- Source the project's environment setup script if one exists (e.g., `.env` or `init.sh`).
 
 ## 1. Startup & Discovery
 Identify your objectives and prepare your environment.
-- **Environment Check**: Run `./init.sh` to verify tool health.
+- **Environment Check**: Run the project's initialization script (e.g., `./init.sh`) to verify tool health.
 - **Task Discovery**: Find issues with the `agent:assigned` label or browse the backlog.
 - **Reference**: See [github-ops.md](references/github-ops.md) for discovery commands.
 
@@ -25,7 +22,7 @@ Identify your objectives and prepare your environment.
 Maintain transparency and quality during development.
 - **Decompose Task**: Break down issues into atomic steps in `.agents/TODO.md` and sync to GitHub.
 - **Branch & Code**: Create a feature branch and adhere to project standards.
-- **Standards**: Follow the `stylua` and "Root Lock" rules.
+- **Standards**: Follow the project's formatting and "Root Lock" rules.
 - **Reference**: See [standards.md](references/standards.md) for code quality guidelines.
 
 ## 3. Submission & Shutdown

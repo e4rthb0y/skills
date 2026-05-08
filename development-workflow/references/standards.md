@@ -3,9 +3,8 @@
 Guidelines for maintaining high-quality, transparent development.
 
 ## Code Standards
-- **Formatting**: Lua files MUST be formatted with `stylua`.
-  - Native autocommand on save is active.
-  - Manual verification: `stylua --config-path .stylua.toml <file>`
+- **Formatting**: Files MUST be formatted using the project's configured tools (e.g., `stylua`, `prettier`, `black`).
+  - Follow the project's convention for automatic formatting on save or manual verification commands.
 - **Root Lock**: Stay within the project directory.
 - **No Hardcoding**: Dynamically resolve all paths.
 
