@@ -10,9 +10,9 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 ## Prerequisites
 
 - Ensure `gh`, `git`, and any project-specific formatters or linters are installed.
-- Source the environment setup script before any operations to authenticate as an agent:
+- You MUST source the environment setup script before EVERY `gh` command or sequence of commands to authenticate as an agent:
     ```bash
-    source ~/.agent-env.sh
+    source ~/.agent-env.sh && gh <command>
     ```
 
 ## 1. Startup & Discovery
@@ -20,7 +20,14 @@ A comprehensive guide to the agentic development lifecycle, from task discovery 
 Identify your objectives and prepare your environment.
 
 - **Environment Check**: Run the project's initialization script (e.g., `./init.sh`) to verify tool health.
-- **Task Discovery**: Find issues with the `agent:assigned` label or browse the backlog.
+- **Task Discovery**: Authenticate and find issues:
+    ```bash
+    source ~/.agent-env.sh && gh issue list --label "agent:assigned"
+    ```
+- **Claim Task**: Mark the issue as in-progress before starting:
+    ```bash
+    source ~/.agent-env.sh && gh issue edit <number> --add-label "agent:in-progress" --remove-label "agent:assigned"
+    ```
 - **Reference**: See [github-ops.md](references/github-ops.md) for discovery commands.
 
 ## 2. Planning & Execution
@@ -38,5 +45,9 @@ Validate your work and handle transitions.
 
 - **Principal Checklist**: Perform a final self-review of architecture and telemetry.
 - **Pull Request**: Submit your changes for review using conventional commits.
-- **Handoffs**: If pausing, ensure the current state is documented on the issue.
+- **Handoffs**: When submitting for review, apply the review label:
+    ```bash
+    source ~/.agent-env.sh && gh issue edit <number> --add-label "agent:waiting-for-review" --remove-label "agent:in-progress"
+    ```
+    If pausing, ensure the current state is documented on the issue.
 - **Reference**: See [github-ops.md](references/github-ops.md) for PR and handoff commands.
