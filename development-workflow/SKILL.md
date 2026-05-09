@@ -35,7 +35,8 @@ Identify your objectives and prepare your environment.
 Maintain transparency and quality during development.
 
 - **Decompose Task**: Break down issues into atomic steps in `.agents/TODO.md` and sync to GitHub.
-- **Branch & Draft PR**: Create a feature branch and an immediate DRAFT Pull Request to link the issue and track progress.
+- **Branch**: Create a feature branch for the task.
+- **First Commit & Draft PR**: After making your first commit and pushing it, create a DRAFT Pull Request to link the issue and track progress.
 - **Standards**: Follow the project's formatting and "Root Lock" rules.
 - **Reference**: See [github-ops.md](references/github-ops.md) for branch and PR creation commands.
 

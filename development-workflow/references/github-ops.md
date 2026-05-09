@@ -15,7 +15,13 @@ Technical commands for managing the development lifecycle.
     ```bash
     source ~/.agent-env.sh && \
     gh issue edit <id> --add-label "in-progress" && \
-    git checkout -b feature/issue-<id> && \
+    git checkout -b feature/issue-<id>
+    git push -u origin HEAD && \
+    ```
+    _Note: Create your first commit and push (`git push origin HEAD`) before creating the PR._
+- **Create Draft PR**:
+    ```bash
+    source ~/.agent-env.sh && \
     gh pr create --title "Fix: [Task Name]" --body "Fixes #<id>" --draft
     ```
 - **Atomic Breakdown**: Comment on the PR or issue: `gh issue comment <id> --body "### Atomic Task Breakdown\n- [ ] Task 1..."`
