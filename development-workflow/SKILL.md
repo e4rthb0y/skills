@@ -45,6 +45,14 @@ Validate your work and handle transitions.
 
 - **Principal Checklist**: Perform a final self-review of architecture and telemetry.
 - **Ready for Review**: Mark the draft PR as ready for review.
+- **Verify CI**: After submitting or marking as ready, monitor CI runs (linters, builds, tests):
+    ```bash
+    source ~/.agent-env.sh && gh pr checks --watch
+    ```
+    If a job fails, inspect the logs to diagnose the issue:
+    ```bash
+    source ~/.agent-env.sh && gh run view --log-failed --job=<job-id>
+    ```
 - **Handoffs**: When submitting for review, apply the generic status label:
     ```bash
     source ~/.agent-env.sh && gh issue edit <number> --add-label "waiting-for-review" --remove-label "in-progress"
