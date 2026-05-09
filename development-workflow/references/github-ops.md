@@ -28,4 +28,6 @@ Technical commands for managing the development lifecycle.
 ## Submission
 
 - **Mark Ready**: `gh pr ready <pr-number>`
+- **Verify CI**: `gh pr checks --watch`
+- **Inspect Failed Logs**: `gh run view --log-failed --job=<job-id>`
 - **Handoffs**: `gh issue edit <id> --add-label "waiting-for-review" --remove-label "in-progress"`
