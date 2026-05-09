@@ -16,7 +16,7 @@ Technical commands for managing the development lifecycle.
     source ~/.agent-env.sh && \
     gh issue edit <id> --add-label "in-progress" && \
     git checkout -b feature/issue-<id>
-    git push -u upstream feature/issue-<id> && \
+    git push -u origin HEAD && \
     ```
     _Note: Create your first commit and push (`git push origin HEAD`) before creating the PR._
 - **Create Draft PR**:
