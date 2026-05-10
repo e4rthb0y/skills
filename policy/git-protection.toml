@@ -2,5 +2,5 @@
 toolName = "run_shell_command"
 commandRegex = "git push .*(main|master)"
 decision = "deny"
-priority = 1000
+priority = 999
 denyMessage = "CRITICAL: Direct pushes to protected branches ('main' or 'master') are strictly prohibited by global policy. Please use a Pull Request workflow."
